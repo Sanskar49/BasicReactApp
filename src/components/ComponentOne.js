@@ -1,6 +1,7 @@
 import React from 'react';
 import './ComponentOne.css'
 import ComponentTwo from './ComponentTwo'
+import MainComponent from './MainComponent'
 
 class ComponentOne extends React.Component {
 
@@ -43,6 +44,8 @@ class ComponentOne extends React.Component {
                 <button onClick = {this.inc}>Increament</button>
                 <button onClick = {this.dec}>Decreament</button>
                 <ComponentTwo name="abc" id='101'> Something fissy? </ComponentTwo>
+                <MainComponent />
+                
 
             </div>
             

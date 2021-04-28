@@ -13,11 +13,31 @@ class ComponentOne extends React.Component {
       constructor(props) {
           super(props);
           this.state = {
-              value: 0
+              value: 0,
+              flag : true
           }
           this.inc = this.inc.bind(this);
           this.dec = this.dec.bind(this);
+          this.show = this.show.bind(this);
+          this.changeFlag = this.changeFlag.bind(this);
       }
+      show() {
+          if(this.state.flag) {
+              return <MainComponent />
+          }
+          else {
+              return <ComponentTwo />
+          }
+      }
+      changeFlag() {
+          if(this.state.flag) {
+              this.setState({flag:false})
+          } 
+          else {
+              this.setState({flag:true})
+          }
+        }
+              
       
 
       inc() {
@@ -44,7 +64,9 @@ class ComponentOne extends React.Component {
                 <button onClick = {this.inc}>Increament</button>
                 <button onClick = {this.dec}>Decreament</button>
                 <ComponentTwo name="abc" id='101'> Something fissy? </ComponentTwo>
-                <MainComponent />
+                {this.show()}
+                <button onClick= {this.changeFlag}>Toggle</button>
+                
                 
 
             </div>
